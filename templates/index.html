@@ -5,6 +5,59 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Input and Response</title>
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            form {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            input[type="text"] {
+                width: 200px;
+                padding: 10px;
+                margin-right: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                padding: 10px 15px;
+                border: none;
+                background-color: #007bff;
+                color: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            div {
+                margin-top: 20px;
+                padding: 10px;
+                background: #fff;
+                border-radius: 4px;
+                width: fit-content;
+            }
+
+            .response {
+                max-width: 500px;
+            }
+        </style>
     </head>
     <body>
         <form action="/" method="post">
@@ -16,6 +69,6 @@
             <button type="submit">Submit</button>
         </form>
         <br />
-        <div>{{ response }}</div>
+        <div class="response">{{ response }}</div>
     </body>
 </html>
