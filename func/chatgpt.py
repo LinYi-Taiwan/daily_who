@@ -3,11 +3,13 @@ import openai
 import pandas as pd
 from openai.embeddings_utils import get_embedding, cosine_similarity
 from dotenv import load_dotenv
+import requests
 
 env_path = '.env'
 load_dotenv(dotenv_path=env_path)
 openai.api_key = os.environ['OPENAI_KEY']
 model = os.environ['OPENAI_MODEL']
+vector_github_gist = os.environ['VECTOR_GITHUB_GIST']
 
 
 class ChatGPT:
@@ -24,14 +26,17 @@ class ChatGPT:
 
     def get_simarity(self, search_text):
         search_text_embedding = self.get_text_embedding(search_text)
-        pkl = pd.read_pickle(self.database)
+        response = requests.get(vector_github_gist)
+        res = response.json()
+        gist = pd.DataFrame(res)
 
-        pkl['similarity'] = pkl['summary_vector'].apply(
+        gist['similarity'] = gist['summary_vector'].apply(
             lambda x: cosine_similarity(x, search_text_embedding))
-        pkl = pkl.sort_values(
+        gist = gist.sort_values(
             by='similarity', ascending=False)
-        result = pkl.head(1)['summary'].values[0]
+        result = gist.head(1)['summary'].values[0]
         return result
+
 
     def get_response(self, msg):
         response = openai.ChatCompletion.create(

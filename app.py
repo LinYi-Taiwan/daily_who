@@ -1,13 +1,16 @@
 from flask import Flask, request, render_template
 from func.chatgpt import ChatGPT
+import requests
 
 app = Flask(__name__)
 
 search_engine = ChatGPT('./database.pkl')
 
-@app.route("/hello")
+@app.route("/get-gist")
 def thread_summary():
-    return 'Hello World!'
+    response = requests.get('https://gist.github.com/LinYi-Taiwan/a700aba96211f0ec2e2d158fe7531a90.json')
+    response.raise_for_status()  # 如果請求出錯，這將引發一個異常
+    return response.json()
 
 @app.route('/', methods=['GET', 'POST'])
 def search():
