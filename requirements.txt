@@ -1,0 +1,10 @@
+Flask==2.2.2
+numpy==1.24.1
+openai==0.27.2
+pandas==1.5.2
+Werkzeug==2.2.2
+matplotlib
+plotly
+scipy
+scikit-learn 
+python-dotenv
