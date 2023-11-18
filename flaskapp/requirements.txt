@@ -9,3 +9,4 @@ scipy
 scikit-learn 
 python-dotenv
 gunicorn
+uWSGI==2.0.18
