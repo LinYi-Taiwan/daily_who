@@ -45,6 +45,8 @@ services:
     nginx:
         build: ./nginx
         container_name: daily-who-nginx
+        environment:
+            - SERVER_NAME=${SERVER_NAME}
         # restart: always
         ports:
             - "80:80"
