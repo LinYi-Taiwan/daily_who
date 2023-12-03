@@ -1,29 +1,3 @@
-# version: "3"
-
-# services:
-#     flask:
-#         build:
-#             context: ./flaskapp
-#             dockerfile: Dockerfile
-#         environment:
-#             - OPENAI_KEY=${OPENAI_KEY}
-#             - OPENAI_MODEL=${OPENAI_MODEL}
-#             - VECTOR_GITHUB_GIST=${VECTOR_GITHUB_GIST}
-#         container_name: flaskapp
-#         network_mode: host
-#         volumes:
-#             - ./flaskapp:/app
-
-#     nginx:
-#         build:
-#             context: ./nginx
-#             dockerfile: Dockerfile
-#         container_name: nginx
-#         environment:
-#             - SERVER_NAME=0.0.0.0
-#         restart: always
-#         network_mode: host
-
 version: "3.7"
 
 services:
