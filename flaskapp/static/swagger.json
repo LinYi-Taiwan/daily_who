@@ -35,7 +35,7 @@
         "properties": {
           "status": {
             "type": "integer",
-            "enum": [200, 400] 
+            "enum": [200, 400]
           },
           "message": {
             "type": "string"
@@ -75,6 +75,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SimilarityOutput"
+                },
+                "example": {
+                  "status": 200,
+                  "message": "Success",
+                  "data": "Have a nice day!"
                 }
               }
             }
@@ -86,13 +91,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/SimilarityOutput"
                 },
-              "example": {   
-                "status": 400,
-                "message": "Invalid request format or parameters",
-                "data": {
+                "example": {
+                  "status": 400,
+                  "message": "Invalid request format or parameters",
                   "data": null
                 }
-              }
               }
             }
           }
