@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Code With Prince",
+    "description": "Code With Daily Who API",
     "version": "1.0.0",
-    "title": "Code With Prince Flask API Tutorial",
+    "title": "Code With Daily Who API",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
