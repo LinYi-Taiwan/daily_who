@@ -1,0 +1,103 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Code With Prince",
+    "version": "1.0.0",
+    "title": "Code With Prince Flask API Tutorial",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Daily Who API",
+      "description": "Test API"
+    }
+  ],
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "SimilarityInput": {
+        "type": "object",
+        "properties": {
+          "user_input": {
+            "type": "string"
+          }
+        }
+      },
+      "SimilarityOutput": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "enum": [200, 400] 
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/gpt/similarity": {
+      "post": {
+        "tags": ["Chatgpt API"],
+        "summary": "Get similarity between two sentences",
+        "requestBody": {
+          "description": "Input data with user input",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimilarityInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimilarityOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid request format or parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimilarityOutput"
+                },
+              "example": {   
+                "status": 400,
+                "message": "Invalid request format or parameters",
+                "data": {
+                  "data": null
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

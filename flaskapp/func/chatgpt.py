@@ -24,7 +24,7 @@ class ChatGPT:
         embedding = get_embedding(text, engine="text-embedding-ada-002")
         return embedding
 
-    def get_simarity(self, search_text):
+    def get_similarity(self, search_text):
         search_text_embedding = self.get_text_embedding(search_text)
         response = requests.get(vector_github_gist)
         res = response.json()

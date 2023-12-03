@@ -10,3 +10,4 @@ scikit-learn
 python-dotenv
 gunicorn
 uWSGI==2.0.18
+flask_swagger_ui
